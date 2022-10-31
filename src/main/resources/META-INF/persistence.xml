@@ -5,5 +5,18 @@
              version="3.0">
     <persistence-unit name="default">
 
+        <class>entities.AccountsEntity</class>
+        <class>entities.AdminsEntity</class>
+        <class>entities.BriefsEntity</class>
+        <class>entities.PromosEntity</class>
+        <class>entities.StudentsEntity</class>
+        <class>entities.TeachersEntity</class>
+        <class>entities.ValidationmessagesEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/simplon_clone_web_v"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="369852741.dadA"/>
+        </properties>
     </persistence-unit>
 </persistence>

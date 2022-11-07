@@ -3,7 +3,39 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="default">
+    <persistence-unit name="simplon_clone_web_v">
 
+        <class>com.brief.java_simplon_clone_web_v.entities.AccountsEntity</class>
+        <class>com.brief.java_simplon_clone_web_v.entities.AdminsEntity</class>
+        <class>com.brief.java_simplon_clone_web_v.entities.BriefsEntity</class>
+        <class>com.brief.java_simplon_clone_web_v.entities.PromosEntity</class>
+        <class>com.brief.java_simplon_clone_web_v.entities.StudentsEntity</class>
+        <class>com.brief.java_simplon_clone_web_v.entities.TeachersEntity</class>
+        <class>com.brief.java_simplon_clone_web_v.entities.ValidationmessagesEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/simplon_clone_web_v"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="369852741.dadA"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
     </persistence-unit>
 </persistence>
+
+<!--<persistence-unit name="default">-->
+<!--<properties>-->
+<!--    <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> &lt;!&ndash; DB Driver &ndash;&gt;-->
+<!--    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/maghrebschool" /> &lt;!&ndash; BD Mane &ndash;&gt;-->
+<!--    <property name="javax.persistence.jdbc.user" value="postgres" /> &lt;!&ndash; DB User &ndash;&gt;-->
+<!--    <property name="javax.persistence.jdbc.password" value="123" /> &lt;!&ndash; DB Password &ndash;&gt;-->
+<!--    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> &lt;!&ndash; DB Dialect &ndash;&gt;-->
+<!--    <property name="hibernate.hbm2ddl.auto" value="update" /> &lt;!&ndash; create / create-drop / update &ndash;&gt;-->
+<!--    <property name="hibernate.show_sql" value="true" /> &lt;!&ndash; Show SQL in console &ndash;&gt;-->
+<!--    <property name="hibernate.format_sql" value="true" />-->
+<!--    <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres"/>-->
+<!--    <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>-->
+<!--    <property name="hibernate.connection.username" value="postgres"/>-->
+<!--    <property name="hibernate.connection.password" value="password"/> &lt;!&ndash; Show SQL formatted &ndash;&gt;-->
+<!--</properties>-->
+<!--</persistence-unit>-->
+<!--        </persistence>-->

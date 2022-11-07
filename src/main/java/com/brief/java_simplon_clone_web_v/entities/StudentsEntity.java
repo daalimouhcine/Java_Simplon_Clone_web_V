@@ -1,4 +1,4 @@
-package entities;
+package com.brief.java_simplon_clone_web_v.entities;
 
 import jakarta.persistence.*;
 

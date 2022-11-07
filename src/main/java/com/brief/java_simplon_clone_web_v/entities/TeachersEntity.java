@@ -1,13 +1,10 @@
-package entities;
+package com.brief.java_simplon_clone_web_v.entities;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "accounts", schema = "public", catalog = "simplon_clone_web_v")
-public class AccountsEntity {
+@Table(name = "teachers", schema = "public", catalog = "simplon_clone_web_v")
+public class TeachersEntity {
     @Basic
     @Column(name = "fullname")
     private String fullname;
@@ -17,6 +14,13 @@ public class AccountsEntity {
     @Basic
     @Column(name = "email")
     private String email;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "roll")
+    private Integer roll;
 
     public String getFullname() {
         return fullname;
@@ -42,16 +46,34 @@ public class AccountsEntity {
         this.email = email;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Integer getRoll() {
+        return roll;
+    }
+
+    public void setRoll(Integer roll) {
+        this.roll = roll;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AccountsEntity that = (AccountsEntity) o;
+        TeachersEntity that = (TeachersEntity) o;
 
+        if (id != that.id) return false;
         if (fullname != null ? !fullname.equals(that.fullname) : that.fullname != null) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (roll != null ? !roll.equals(that.roll) : that.roll != null) return false;
 
         return true;
     }
@@ -61,6 +83,8 @@ public class AccountsEntity {
         int result = fullname != null ? fullname.hashCode() : 0;
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + id;
+        result = 31 * result + (roll != null ? roll.hashCode() : 0);
         return result;
     }
 }

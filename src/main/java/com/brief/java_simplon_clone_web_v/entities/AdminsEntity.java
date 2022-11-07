@@ -1,4 +1,4 @@
-package entities;
+package com.brief.java_simplon_clone_web_v.entities;
 
 import jakarta.persistence.*;
 
@@ -87,4 +87,6 @@ public class AdminsEntity {
         result = 31 * result + (roll != null ? roll.hashCode() : 0);
         return result;
     }
+
+
 }

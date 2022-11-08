@@ -1,18 +1,15 @@
-CREATE TYPE rolls AS ENUM('admin', 'teacher', 'student');
-
 CREATE TABLE if not exists accounts(
     fullName VARCHAR(255) NOT NULL,
     phone VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE if not exists admins(
-    id SERIAL PRIMARY KEY,
-    roll INT DEFAULT 1
+    id SERIAL PRIMARY KEY
 ) inherits (accounts);
 CREATE TABLE if not exists teachers(
-    id SERIAL PRIMARY KEY,
-    roll INT DEFAULT 2
+    id SERIAL PRIMARY KEY
 ) inherits (accounts);
 
 CREATE TABLE if not exists promos(
@@ -23,7 +20,6 @@ CREATE TABLE if not exists promos(
 
 CREATE TABLE if not exists students(
     id SERIAL PRIMARY KEY,
-    roll INT DEFAULT 3,
     promoId INTEGER REFERENCES promos(id) DEFAULT NULL
 ) inherits (accounts);
 

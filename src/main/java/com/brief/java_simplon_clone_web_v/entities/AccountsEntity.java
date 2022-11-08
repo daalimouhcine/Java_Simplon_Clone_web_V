@@ -17,6 +17,9 @@ public class AccountsEntity {
     @Basic
     @Column(name = "email")
     private String email;
+    @Basic
+    @Column(name = "password")
+    private String password;
 
     public String getFullname() {
         return fullname;
@@ -42,6 +45,14 @@ public class AccountsEntity {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,6 +63,7 @@ public class AccountsEntity {
         if (fullname != null ? !fullname.equals(that.fullname) : that.fullname != null) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
 
         return true;
     }
@@ -61,6 +73,7 @@ public class AccountsEntity {
         int result = fullname != null ? fullname.hashCode() : 0;
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 }

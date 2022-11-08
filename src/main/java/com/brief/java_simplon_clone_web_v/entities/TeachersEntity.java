@@ -14,13 +14,13 @@ public class TeachersEntity {
     @Basic
     @Column(name = "email")
     private String email;
+    @Basic
+    @Column(name = "password")
+    private String password;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
-    @Column(name = "roll")
-    private Integer roll;
 
     public String getFullname() {
         return fullname;
@@ -46,20 +46,20 @@ public class TeachersEntity {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Integer getRoll() {
-        return roll;
-    }
-
-    public void setRoll(Integer roll) {
-        this.roll = roll;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class TeachersEntity {
         if (fullname != null ? !fullname.equals(that.fullname) : that.fullname != null) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (roll != null ? !roll.equals(that.roll) : that.roll != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
 
         return true;
     }
@@ -83,8 +83,8 @@ public class TeachersEntity {
         int result = fullname != null ? fullname.hashCode() : 0;
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + id;
-        result = 31 * result + (roll != null ? roll.hashCode() : 0);
         return result;
     }
 }

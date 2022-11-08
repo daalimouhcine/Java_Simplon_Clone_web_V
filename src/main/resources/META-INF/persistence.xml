@@ -12,6 +12,7 @@
         <class>com.brief.java_simplon_clone_web_v.entities.StudentsEntity</class>
         <class>com.brief.java_simplon_clone_web_v.entities.TeachersEntity</class>
         <class>com.brief.java_simplon_clone_web_v.entities.ValidationmessagesEntity</class>
+
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/simplon_clone_web_v"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

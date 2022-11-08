@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "AuthServlet", value = "/AuthServlet")
+@WebServlet(name = "Login", value = "/Login")
 public class AuthServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -16,10 +16,12 @@ public class AuthServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String role = request.getParameter("role");
+        String role = request.getParameter("roleType");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         if(role == null) {
+            request.setAttribute("email", email);
+            request.setAttribute("password", password);
             request.setAttribute("error_login", "Role is required");
             request.getRequestDispatcher("auth/Login.jsp").forward(request, response);
         } else {
@@ -29,6 +31,9 @@ public class AuthServlet extends HttpServlet {
                     if (adminService.login(email, password)) {
                         response.sendRedirect("admin/dashboard.jsp");
                     } else {
+                        request.setAttribute("email", email);
+                        request.setAttribute("password", password);
+                        request.setAttribute("role", role);
                         request.setAttribute("error_login", "Invalid email or password");
                         request.getRequestDispatcher("auth/Login.jsp").forward(request, response);
                     }

@@ -15,12 +15,16 @@
 <%
     String error_login = (String) request.getAttribute("error_login");
     String email = "";
+    String password = "";
     String role = "";
     if(request.getAttribute("email") != null) {
         email = (String) request.getAttribute("email");
     }
     if(request.getAttribute("role") != null) {
         role = (String) request.getAttribute("role");
+    }
+    if(request.getAttribute("password") != null) {
+        password = (String) request.getAttribute("password");
     }
 %>
 <!-- component -->
@@ -36,7 +40,7 @@
                     <span class="block sm:inline"><%= error_login %></span>
                 </div>
             <% } %>
-            <form action="/AuthServlet" method="post" class="mx-auto">
+            <form action="/Login" method="post" class="mx-auto">
                 <div>
                     <h1 class="text-2xl text-center font-semibold">Login</h1>
                 </div>
@@ -89,7 +93,7 @@
                             <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
                         </div>
                         <div class="relative">
-                            <input autocomplete="off" required id="password" name="password" type="password" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
+                            <input autocomplete="off" required id="password" name="password" type="password" value="<%=password%>" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
                             <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                         </div>
 

@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1101</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1138</IntrospectionStateNumber>
       <ServerVersion>14.5</ServerVersion>
       <StartupTime>1666955011</StartupTime>
       <TimeZones>true ACDT
@@ -809,14 +809,14 @@ false Zulu
 13388||10|C|G
 13388||-9223372036854775808|U|G
 13388||10|U|G</Grants>
-      <IntrospectionStateNumber>1101</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1138</IntrospectionStateNumber>
       <ObjectId>16800</ObjectId>
-      <Relations>sequence|table|17136|17137|1
-sequence|table|17121|17122|1
-sequence|table|17077|17078|5
-sequence|table|17086|17087|5
-sequence|table|17095|17096|1
-sequence|table|17107|17108|5
+      <Relations>sequence|table|17156|17157|1
+sequence|table|17165|17166|1
+sequence|table|17174|17175|1
+sequence|table|17181|17182|1
+sequence|table|17190|17191|1
+sequence|table|17199|17200|1
 </Relations>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4237,7 +4237,7 @@ sequence|table|17107|17108|5
     <schema id="263" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1101</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1138</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4254,489 +4254,363 @@ student</Labels>
     </object-type>
     <sequence id="265" parent="263" name="admins_id_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>17077</ObjectId>
-      <StateNumber>1091</StateNumber>
+      <ObjectId>17156</ObjectId>
+      <StateNumber>1129</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="266" parent="263" name="briefs_id_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>17121</ObjectId>
-      <StateNumber>1095</StateNumber>
+      <ObjectId>17165</ObjectId>
+      <StateNumber>1130</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="267" parent="263" name="promos_id_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>17095</ObjectId>
-      <StateNumber>1093</StateNumber>
+      <ObjectId>17174</ObjectId>
+      <StateNumber>1131</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="268" parent="263" name="students_id_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>17107</ObjectId>
-      <StateNumber>1094</StateNumber>
+      <ObjectId>17181</ObjectId>
+      <StateNumber>1132</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="269" parent="263" name="teachers_id_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>17086</ObjectId>
-      <StateNumber>1092</StateNumber>
+      <ObjectId>17190</ObjectId>
+      <StateNumber>1133</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="270" parent="263" name="validationmessages_id_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>17136</ObjectId>
-      <StateNumber>1096</StateNumber>
+      <ObjectId>17199</ObjectId>
+      <StateNumber>1134</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="271" parent="263" name="accounts">
-      <ObjectId>17072</ObjectId>
-      <StateNumber>1091</StateNumber>
-      <SuccessorIds>17078,17087,17108</SuccessorIds>
+    <table id="271" parent="263" name="admins">
+      <ObjectId>17157</ObjectId>
+      <StateNumber>1129</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="272" parent="263" name="admins">
-      <AncestorIds>17072</AncestorIds>
-      <ObjectId>17078</ObjectId>
-      <StateNumber>1091</StateNumber>
+    <table id="272" parent="263" name="briefs">
+      <ObjectId>17166</ObjectId>
+      <StateNumber>1130</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="273" parent="263" name="briefs">
-      <ObjectId>17122</ObjectId>
-      <StateNumber>1095</StateNumber>
+    <table id="273" parent="263" name="promos">
+      <ObjectId>17175</ObjectId>
+      <StateNumber>1131</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="274" parent="263" name="promos">
-      <ObjectId>17096</ObjectId>
-      <StateNumber>1093</StateNumber>
+    <table id="274" parent="263" name="students">
+      <ObjectId>17182</ObjectId>
+      <StateNumber>1132</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="275" parent="263" name="students">
-      <AncestorIds>17072</AncestorIds>
-      <ObjectId>17108</ObjectId>
-      <StateNumber>1094</StateNumber>
+    <table id="275" parent="263" name="teachers">
+      <ObjectId>17191</ObjectId>
+      <StateNumber>1133</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="276" parent="263" name="teachers">
-      <AncestorIds>17072</AncestorIds>
-      <ObjectId>17087</ObjectId>
-      <StateNumber>1093</StateNumber>
+    <table id="276" parent="263" name="validationmessages">
+      <ObjectId>17200</ObjectId>
+      <StateNumber>1134</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="277" parent="263" name="validationmessages">
-      <ObjectId>17137</ObjectId>
-      <StateNumber>1096</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <column id="278" parent="271" name="fullname">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1090</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="279" parent="271" name="phone">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>1090</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="280" parent="271" name="email">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>1090</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="281" parent="271" name="password">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1090</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="282" parent="272" name="fullname">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1091</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="283" parent="272" name="phone">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>1091</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="284" parent="272" name="email">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>1091</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="285" parent="272" name="password">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1091</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="286" parent="272" name="id">
+    <column id="277" parent="271" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;admins_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>1091</StateNumber>
+      <Position>1</Position>
+      <StateNumber>1129</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="287" parent="272" name="admins_pkey">
+    <column id="278" parent="271" name="email">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>1129</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="279" parent="271" name="fullname">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>1129</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="280" parent="271" name="password">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>1129</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="281" parent="271" name="phone">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>1129</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="282" parent="271" name="admins_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17084</ObjectId>
+      <ObjectId>17163</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1129</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="288" parent="272" name="admins_pkey">
+    <key id="283" parent="271" name="admins_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17085</ObjectId>
+      <ObjectId>17164</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1091</StateNumber>
-      <UnderlyingIndexId>17084</UnderlyingIndexId>
+      <StateNumber>1129</StateNumber>
+      <UnderlyingIndexId>17163</UnderlyingIndexId>
     </key>
-    <column id="289" parent="273" name="id">
+    <column id="284" parent="272" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;briefs_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1095</StateNumber>
+      <StateNumber>1130</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="290" parent="273" name="title">
+    <column id="285" parent="272" name="description">
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1095</StateNumber>
+      <StateNumber>1130</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="291" parent="273" name="description">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>1095</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="292" parent="273" name="technologies">
-      <DataType>varchar(255) []|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1095</StateNumber>
-      <TypeId>1015</TypeId>
-    </column>
-    <column id="293" parent="273" name="promoid">
-      <DataType>integer|0s</DataType>
-      <Position>5</Position>
-      <StateNumber>1095</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="294" parent="273" name="launched">
+    <column id="286" parent="272" name="launched">
       <DataType>boolean|0s</DataType>
-      <DefaultExpression>false</DefaultExpression>
-      <Position>6</Position>
-      <StateNumber>1095</StateNumber>
+      <Position>3</Position>
+      <StateNumber>1130</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <foreign-key id="295" parent="273" name="briefs_promoid_fkey">
-      <ColNames>promoid</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17131</ObjectId>
-      <RefColNames>id</RefColNames>
-      <RefColPositions>1</RefColPositions>
-      <StateNumber>1095</StateNumber>
-      <RefTableId>17096</RefTableId>
-      <RefTableName>promos</RefTableName>
-      <RefTableKind>table</RefTableKind>
-    </foreign-key>
-    <index id="296" parent="273" name="briefs_pkey">
+    <column id="287" parent="272" name="promoid">
+      <DataType>integer|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>1130</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="288" parent="272" name="technologies">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>1130</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="289" parent="272" name="title">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>6</Position>
+      <StateNumber>1130</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="290" parent="272" name="briefs_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17129</ObjectId>
+      <ObjectId>17172</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1095</StateNumber>
+      <StateNumber>1130</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="297" parent="273" name="briefs_pkey">
+    <key id="291" parent="272" name="briefs_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17130</ObjectId>
+      <ObjectId>17173</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1095</StateNumber>
-      <UnderlyingIndexId>17129</UnderlyingIndexId>
+      <StateNumber>1130</StateNumber>
+      <UnderlyingIndexId>17172</UnderlyingIndexId>
     </key>
-    <column id="298" parent="274" name="id">
+    <column id="292" parent="273" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;promos_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1093</StateNumber>
+      <StateNumber>1131</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="299" parent="274" name="name">
+    <column id="293" parent="273" name="name">
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1093</StateNumber>
+      <StateNumber>1131</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="300" parent="274" name="teacher_id">
+    <column id="294" parent="273" name="teacher_id">
       <DataType>integer|0s</DataType>
       <Position>3</Position>
-      <StateNumber>1093</StateNumber>
+      <StateNumber>1131</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="301" parent="274" name="promos_teacher_id_fkey">
-      <ColNames>teacher_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17102</ObjectId>
-      <RefColNames>id</RefColNames>
-      <RefColPositions>5</RefColPositions>
-      <StateNumber>1093</StateNumber>
-      <RefTableId>17087</RefTableId>
-      <RefTableName>teachers</RefTableName>
-      <RefTableKind>table</RefTableKind>
-    </foreign-key>
-    <index id="302" parent="274" name="promos_pkey">
+    <index id="295" parent="273" name="promos_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17100</ObjectId>
+      <ObjectId>17179</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1093</StateNumber>
+      <StateNumber>1131</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="303" parent="274" name="promos_pkey">
+    <key id="296" parent="273" name="promos_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17101</ObjectId>
+      <ObjectId>17180</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1093</StateNumber>
-      <UnderlyingIndexId>17100</UnderlyingIndexId>
+      <StateNumber>1131</StateNumber>
+      <UnderlyingIndexId>17179</UnderlyingIndexId>
     </key>
-    <column id="304" parent="275" name="fullname">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1094</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="305" parent="275" name="phone">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>1094</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="306" parent="275" name="email">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>1094</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="307" parent="275" name="password">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1094</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="308" parent="275" name="id">
+    <column id="297" parent="274" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;students_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>1094</StateNumber>
+      <Position>1</Position>
+      <StateNumber>1132</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="309" parent="275" name="promoid">
+    <column id="298" parent="274" name="email">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>1132</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="299" parent="274" name="fullname">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>1132</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="300" parent="274" name="password">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>1132</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="301" parent="274" name="phone">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>1132</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="302" parent="274" name="promoid">
       <DataType>integer|0s</DataType>
       <Position>6</Position>
-      <StateNumber>1094</StateNumber>
+      <StateNumber>1132</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="310" parent="275" name="students_promoid_fkey">
-      <ColNames>promoid</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17116</ObjectId>
-      <RefColNames>id</RefColNames>
-      <RefColPositions>1</RefColPositions>
-      <StateNumber>1094</StateNumber>
-      <RefTableId>17096</RefTableId>
-      <RefTableName>promos</RefTableName>
-      <RefTableKind>table</RefTableKind>
-    </foreign-key>
-    <index id="311" parent="275" name="students_pkey">
+    <index id="303" parent="274" name="students_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17114</ObjectId>
+      <ObjectId>17188</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1094</StateNumber>
+      <StateNumber>1132</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="312" parent="275" name="students_pkey">
+    <key id="304" parent="274" name="students_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17115</ObjectId>
+      <ObjectId>17189</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1094</StateNumber>
-      <UnderlyingIndexId>17114</UnderlyingIndexId>
+      <StateNumber>1132</StateNumber>
+      <UnderlyingIndexId>17188</UnderlyingIndexId>
     </key>
-    <column id="313" parent="276" name="fullname">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1092</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="314" parent="276" name="phone">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>1092</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="315" parent="276" name="email">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>1092</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="316" parent="276" name="password">
-      <DataType>varchar(255)|0s</DataType>
-      <Inherited>1</Inherited>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1092</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="317" parent="276" name="id">
+    <column id="305" parent="275" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;teachers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>1092</StateNumber>
+      <Position>1</Position>
+      <StateNumber>1133</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="318" parent="276" name="teachers_pkey">
+    <column id="306" parent="275" name="email">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>1133</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="307" parent="275" name="fullname">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>1133</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="308" parent="275" name="password">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>1133</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="309" parent="275" name="phone">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>1133</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="310" parent="275" name="teachers_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17093</ObjectId>
+      <ObjectId>17197</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1092</StateNumber>
+      <StateNumber>1133</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="319" parent="276" name="teachers_pkey">
+    <key id="311" parent="275" name="teachers_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17094</ObjectId>
+      <ObjectId>17198</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1092</StateNumber>
-      <UnderlyingIndexId>17093</UnderlyingIndexId>
+      <StateNumber>1133</StateNumber>
+      <UnderlyingIndexId>17197</UnderlyingIndexId>
     </key>
-    <column id="320" parent="277" name="id">
+    <column id="312" parent="276" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;validationmessages_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1096</StateNumber>
+      <StateNumber>1134</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="321" parent="277" name="student_id">
+    <column id="313" parent="276" name="brief_id">
       <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1096</StateNumber>
+      <StateNumber>1134</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="322" parent="277" name="brief_id">
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
+    <column id="314" parent="276" name="message">
+      <DataType>varchar(255)|0s</DataType>
       <Position>3</Position>
-      <StateNumber>1096</StateNumber>
+      <StateNumber>1134</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="315" parent="276" name="repolink">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>1134</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="316" parent="276" name="student_id">
+      <DataType>integer|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>1134</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="323" parent="277" name="message">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1096</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="324" parent="277" name="repolink">
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>1096</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <foreign-key id="325" parent="277" name="validationmessages_student_id_fkey">
-      <ColNames>student_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17145</ObjectId>
-      <RefColNames>id</RefColNames>
-      <RefColPositions>5</RefColPositions>
-      <StateNumber>1096</StateNumber>
-      <RefTableId>17108</RefTableId>
-      <RefTableName>students</RefTableName>
-      <RefTableKind>table</RefTableKind>
-    </foreign-key>
-    <foreign-key id="326" parent="277" name="validationmessages_brief_id_fkey">
-      <ColNames>brief_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17150</ObjectId>
-      <RefColNames>id</RefColNames>
-      <RefColPositions>1</RefColPositions>
-      <StateNumber>1096</StateNumber>
-      <RefTableId>17122</RefTableId>
-      <RefTableName>briefs</RefTableName>
-      <RefTableKind>table</RefTableKind>
-    </foreign-key>
-    <index id="327" parent="277" name="validationmessages_pkey">
+    <index id="317" parent="276" name="validationmessages_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17143</ObjectId>
+      <ObjectId>17206</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1096</StateNumber>
+      <StateNumber>1134</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="328" parent="277" name="validationmessages_pkey">
+    <key id="318" parent="276" name="validationmessages_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17144</ObjectId>
+      <ObjectId>17207</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1096</StateNumber>
-      <UnderlyingIndexId>17143</UnderlyingIndexId>
+      <StateNumber>1134</StateNumber>
+      <UnderlyingIndexId>17206</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

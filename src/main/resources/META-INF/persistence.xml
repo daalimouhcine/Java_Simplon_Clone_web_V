@@ -5,7 +5,6 @@
              version="3.0">
     <persistence-unit name="simplon_clone_web_v">
 
-        <class>com.brief.java_simplon_clone_web_v.entities.AccountsEntity</class>
         <class>com.brief.java_simplon_clone_web_v.entities.AdminsEntity</class>
         <class>com.brief.java_simplon_clone_web_v.entities.BriefsEntity</class>
         <class>com.brief.java_simplon_clone_web_v.entities.PromosEntity</class>
@@ -18,6 +17,8 @@
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.connection.username" value="postgres"/>
             <property name="hibernate.connection.password" value="369852741.dadA"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>

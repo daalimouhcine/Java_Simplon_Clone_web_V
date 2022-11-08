@@ -5,6 +5,8 @@ import com.brief.java_simplon_clone_web_v.entities.AdminsEntity;
 import com.brief.java_simplon_clone_web_v.utils.HashPassword;
 import jakarta.persistence.EntityManager;
 
+import java.sql.SQLException;
+
 public class AdminService {
     public boolean update(AdminsEntity admin) {
         try {
@@ -32,5 +34,6 @@ public class AdminService {
             return false;
         }
     }
+
 
 }

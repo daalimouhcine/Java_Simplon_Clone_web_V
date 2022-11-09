@@ -34,10 +34,11 @@ public class TeacherService {
             }
         }
 
-        public boolean delete(TeachersEntity teacher) {
+        public boolean delete(int id) {
             try {
                 EntityManager em = EntityManagerConfig.getInstance().getEm();
                 em.getTransaction().begin();
+                TeachersEntity teacher = em.find(TeachersEntity.class, id);
                 em.remove(teacher);
                 em.getTransaction().commit();
                 return true;
@@ -70,6 +71,19 @@ public class TeacherService {
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
+            }
+        }
+
+        public int count() {
+            try {
+                EntityManager em = EntityManagerConfig.getInstance().getEm();
+                em.getTransaction().begin();
+                int count = em.createQuery("SELECT COUNT(t) FROM TeachersEntity t", Long.class).getSingleResult().intValue();
+                em.getTransaction().commit();
+                return count;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
 

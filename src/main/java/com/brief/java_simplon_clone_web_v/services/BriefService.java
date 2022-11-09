@@ -71,4 +71,17 @@ public class BriefService {
             return null;
         }
     }
+
+    public int count() {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            int count = em.createQuery("SELECT COUNT(b) FROM BriefsEntity b", Long.class).getSingleResult().intValue();
+            em.getTransaction().commit();
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }

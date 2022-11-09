@@ -34,10 +34,11 @@ public class PromoService {
             }
         }
 
-        public boolean delete(PromosEntity promo) {
+        public boolean delete(int id) {
             try {
                 EntityManager em = EntityManagerConfig.getInstance().getEm();
                 em.getTransaction().begin();
+                PromosEntity promo = em.find(PromosEntity.class, id);
                 em.remove(promo);
                 em.getTransaction().commit();
                 return true;
@@ -60,6 +61,21 @@ public class PromoService {
             }
         }
 
+        public PromosEntity getPromoByTeacherId(int id) {
+            try {
+                EntityManager em = EntityManagerConfig.getInstance().getEm();
+                em.getTransaction().begin();
+                PromosEntity promo = em.createQuery("SELECT p FROM PromosEntity p WHERE p.teacherId = :teacherId", PromosEntity.class)
+                        .setParameter("teacherId", id)
+                        .getSingleResult();
+                em.getTransaction().commit();
+                return promo;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
         public List<PromosEntity> getAllPromos() {
             try {
                 EntityManager em = EntityManagerConfig.getInstance().getEm();
@@ -70,6 +86,19 @@ public class PromoService {
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
+            }
+        }
+
+        public int count() {
+            try {
+                EntityManager em = EntityManagerConfig.getInstance().getEm();
+                em.getTransaction().begin();
+                int promosNum = em.createQuery("SELECT COUNT(p) FROM PromosEntity p", Long.class).getSingleResult().intValue();
+                em.getTransaction().commit();
+                return promosNum;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
 

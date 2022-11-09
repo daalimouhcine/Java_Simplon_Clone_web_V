@@ -29,7 +29,7 @@ public class AuthServlet extends HttpServlet {
                 case "admin" -> {
                     AdminService adminService = new AdminService();
                     if (adminService.login(email, password)) {
-                        response.sendRedirect("admin/dashboard.jsp");
+                        response.sendRedirect("admin");
                     } else {
                         request.setAttribute("email", email);
                         request.setAttribute("password", password);

@@ -10,14 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97040708-4df2-4efd-b90f-e80d588905da" name="Changes" comment="build: &#10;start the login design and functionnality">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/AddPromo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/AddStudent.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/AddTeacher.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/Briefs.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/Promos.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/Students.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/Teachers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Java_Simplon_Clone_web_V_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Java_Simplon_Clone_web_V_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a/storage_v2/_src_/database/simplon_clone_web_v.XAIBUg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a/storage_v2/_src_/database/simplon_clone_web_v.XAIBUg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a/storage_v2/_src_/database/simplon_clone_web_v.XAIBUg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a/storage_v2/_src_/database/simplon_clone_web_v.XAIBUg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a/storage_v2/_src_/database/simplon_clone_web_v.XAIBUg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca9e6d03-f243-49cc-a849-31d289a6770a/storage_v2/_src_/database/simplon_clone_web_v.XAIBUg/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/controllers/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/controllers/AdminServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/controllers/authentication/AuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/controllers/authentication/AuthServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/auth/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/auth/Login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/BriefService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/BriefService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/PromoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/PromoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/TeacherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brief/java_simplon_clone_web_v/services/TeacherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -281,6 +298,7 @@
       <workItem from="1667867117063" duration="368000" />
       <workItem from="1667903991095" duration="9367000" />
       <workItem from="1667941557603" duration="4479000" />
+      <workItem from="1667993028297" duration="14090000" />
     </task>
     <task id="LOCAL-00001" summary="build(JSCWV-2): add hibernate to the project&#10;&#10;add dependencies">
       <created>1667211753112</created>

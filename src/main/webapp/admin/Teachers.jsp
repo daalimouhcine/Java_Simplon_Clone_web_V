@@ -111,21 +111,18 @@
                     <!-- Secondary navigation -->
                     <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider" id="desktop-teams-headline">Promos</h3>
                     <div class="mt-1 space-y-1" role="group" aria-labelledby="desktop-teams-headline">
-
+                        <%
+                            PromoService promoService = new PromoService();
+                            List<PromosEntity> promos = promoService.getAllPromos();
+                            for (PromosEntity promo : promos) {
+                        %>
                         <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
                             <span class="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full" aria-hidden="true"></span>
-                            <span class="truncate"> JavaScript </span>
+                            <span class="truncate"> <%=promo.getName()%> </span>
                         </a>
-
-                        <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                            <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
-                            <span class="truncate"> Java </span>
-                        </a>
-
-                        <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                            <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
-                            <span class="truncate"> Java II </span>
-                        </a>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
             </nav>
@@ -280,9 +277,8 @@
                         <%
                             List<TeachersEntity> teachers = (List<TeachersEntity>) request.getAttribute("teachers");
                             for (TeachersEntity teacher : teachers) {
-                                PromoService promoService = new PromoService();
                                 PromosEntity promo = promoService.getPromoByTeacherId(teacher.getId());
-                                String promoName = promo != null ? promo.getName() : "Aucune promo";
+                                String promoName = promo != null ? promo.getName() : null;
                         %>
                         <tr>
                             <td class="px-6 py-3 text-sm text-gray-500">
@@ -295,7 +291,35 @@
                                 <div class="truncate"><%=teacher.getEmail()%></div>
                             </td>
                             <td class="px-6 py-3 text-sm text-gray-500">
-                                <div><%=promoName%></div>
+
+                                <%
+                                    if (promoName == null) {
+//                                        create select for the promos that have no teacher
+                                %>
+                                <form action="/admin/teachers" method="post">
+                                    <select class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" name="promo" id="promo">
+                                        <option>Select Promo</option>
+                                        <%
+                                            for (PromosEntity promo1 : promos) {
+                                                if (promo1.getTeacherId() == null) {
+                                        %>
+                                                    <option value="<%=promo1.getId()%>"><%=promo1.getName()%></option>
+                                        <%
+                                                }
+                                            }
+                                        %>
+                                    </select>
+                                    <input type="hidden" name="id" value="<%=teacher.getId()%>">
+                                    <input type="hidden" name="action" value="assignPromo">
+                                    <button type="submit" class="btn btn-primary">Assign</button>
+                                </form>
+                                <%
+                                    } else {
+                                %>
+                                        <div class="truncate"><%=promoName%></div>
+                                <%
+                                    }
+                                %>
                             </td>
                             <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                 <form action="/admin/teachers" method="post">

@@ -100,4 +100,5 @@ public class StudentsEntity {
         result = 31 * result + (promoid != null ? promoid.hashCode() : 0);
         return result;
     }
+
 }

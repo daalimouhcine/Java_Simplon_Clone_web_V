@@ -62,6 +62,7 @@ public class AdminServlet extends HttpServlet {
             case "/admin/teachers" -> {
                 TeacherService teacherService1 = new TeacherService();
                 List<TeachersEntity> teachers = teacherService1.getAllTeachers();
+                request.setAttribute("teachers", teachers);
                 request.getRequestDispatcher("/admin/Teachers.jsp").forward(request, response);
             }
             case "/admin/addTeacher" -> request.getRequestDispatcher("/admin/AddTeacher.jsp").forward(request, response);

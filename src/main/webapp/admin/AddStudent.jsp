@@ -248,13 +248,13 @@
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                     <div class="mt-1 border-b border-gray-300 focus-within:border-indigo-600">
-                        <input type="email" name="email" id="email" class="block h-10 w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm" placeholder="Phone">
+                        <input type="email" name="email" id="email" class="block h-10 w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm" placeholder="Email">
                     </div>
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                     <div class="mt-1 border-b border-gray-300 focus-within:border-indigo-600">
-                        <input type="password" name="password" id="password" class="block h-10 w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm" placeholder="Phone">
+                        <input type="password" name="password" id="password" class="block h-10 w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm" placeholder="Password">
                     </div>
                 </div>
                 <input type="hidden" name="action" value="addStudent"/>

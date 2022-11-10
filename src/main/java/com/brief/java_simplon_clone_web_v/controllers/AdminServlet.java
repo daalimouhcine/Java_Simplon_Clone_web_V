@@ -39,8 +39,6 @@ public class AdminServlet extends HttpServlet {
         switch (path) {
             case "/admin" -> request.getRequestDispatcher("admin/Dashboard.jsp").forward(request, response);
             case "/admin/promos" -> {
-                List<PromosEntity> promos = promoService.getAllPromos();
-                request.setAttribute("promos", promos);
                 request.getRequestDispatcher("/admin/Promos.jsp").forward(request, response);
             }
             case "/admin/addPromo" -> {
@@ -67,7 +65,6 @@ public class AdminServlet extends HttpServlet {
             }
             case "/admin/addTeacher" -> request.getRequestDispatcher("/admin/AddTeacher.jsp").forward(request, response);
         }
-
 
     }
 
@@ -135,6 +132,12 @@ public class AdminServlet extends HttpServlet {
                 TeacherService teacherService = new TeacherService();
                 if (action.equals("delete")) {
                     teacherService.delete(Integer.parseInt(id));
+
+                } else if(action.equals("assignPromo")) {
+                    PromoService promoService = new PromoService();
+                    PromosEntity promo = promoService.getPromoById(Integer.parseInt(request.getParameter("promo")));
+                    promo.setTeacherId(Integer.parseInt(id));
+                    promoService.update(promo);
                 }
                 response.sendRedirect("/admin/teachers");
             }

@@ -50,21 +50,21 @@ public class AdminServlet extends HttpServlet {
                 BriefService briefService1 = new BriefService();
                 List<BriefsEntity> briefs = briefService1.getAllBriefs();
                 request.setAttribute("briefs", briefs);
-                request.getRequestDispatcher("admin/Briefs.jsp").forward(request, response);
+                request.getRequestDispatcher("/admin/Briefs.jsp").forward(request, response);
             }
             case "/admin/students" -> {
                 StudentService studentService1 = new StudentService();
                 List<StudentsEntity> students = studentService1.getAllStudents();
                 request.setAttribute("students", students);
-                request.getRequestDispatcher("admin/Students.jsp").forward(request, response);
+                request.getRequestDispatcher("/admin/Students.jsp").forward(request, response);
             }
-            case "/admin/addStudent" -> request.getRequestDispatcher("admin/AddStudent.jsp").forward(request, response);
+            case "/admin/addStudent" -> request.getRequestDispatcher("/admin/AddStudent.jsp").forward(request, response);
             case "/admin/teachers" -> {
                 TeacherService teacherService1 = new TeacherService();
                 List<TeachersEntity> teachers = teacherService1.getAllTeachers();
                 request.getRequestDispatcher("/admin/Teachers.jsp").forward(request, response);
             }
-            case "/admin/addTeacher" -> request.getRequestDispatcher("admin/AddTeacher.jsp").forward(request, response);
+            case "/admin/addTeacher" -> request.getRequestDispatcher("/admin/AddTeacher.jsp").forward(request, response);
         }
 
 

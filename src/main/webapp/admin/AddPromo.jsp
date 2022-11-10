@@ -149,16 +149,16 @@
                         <div class="flex-shrink-0 flex items-center justify-center w-16 bg-blue-700 text-white text-sm font-medium rounded-l-md">P</div>
                         <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
                             <div class="flex-1 px-4 py-2 text-sm truncate">
-                                <a href="#" class="text-gray-900 font-medium hover:text-gray-600"> Promos</a>
+                                <p class="text-gray-900 font-medium hover:text-gray-600"> Promos</p>
                                 <p class="text-gray-500"><%=request.getAttribute("nbPromo")%> Promo</p>
                             </div>
                             <div class="flex-shrink-0 pr-2">
-                                <a href="Promos.jsp" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/promos" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                     </svg>
                                 </a>
-                                <a href="AddPromo.jsp" class="-mb-4 w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/addPromo" class="-mb-4 w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
                                     </svg>
@@ -171,16 +171,16 @@
                         <div class="flex-shrink-0 flex items-center justify-center w-16 bg-blue-700 text-white text-sm font-medium rounded-l-md">T</div>
                         <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
                             <div class="flex-1 px-4 py-2 text-sm truncate">
-                                <a href="#" class="text-gray-900 font-medium hover:text-gray-600"> Teachers </a>
+                                <p class="text-gray-900 font-medium hover:text-gray-600"> Teachers </p>
                                 <p class="text-gray-500"><%=request.getAttribute("nbTeacher")%> Teacher</p>
                             </div>
                             <div class="flex-shrink-0 pr-2">
-                                <a href="Teachers.jsp" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/teachers" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                     </svg>
                                 </a>
-                                <a href="AddTeacher.jsp" class="-mb-2 w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/addTeacher" class="-mb-2 w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
                                     </svg>
@@ -193,16 +193,16 @@
                         <div class="flex-shrink-0 flex items-center justify-center w-16 bg-blue-700 text-white text-sm font-medium rounded-l-md">S</div>
                         <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
                             <div class="flex-1 px-4 py-2 text-sm truncate">
-                                <a href="#" class="text-gray-900 font-medium hover:text-gray-600"> Students </a>
+                                <p class="text-gray-900 font-medium hover:text-gray-600"> Students </p>
                                 <p class="text-gray-500"><%=request.getAttribute("nbStudent")%> Student</p>
                             </div>
                             <div class="flex-shrink-0 pr-2">
-                                <a href="Students.jsp" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/students" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                     </svg>
                                 </a>
-                                <a href="AddStudent.jsp" class="-mb-2 w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/addStudent" class="-mb-2 w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
                                     </svg>
@@ -215,11 +215,11 @@
                         <div class="flex-shrink-0 flex items-center justify-center w-16 bg-blue-700 text-white text-sm font-medium rounded-l-md">B</div>
                         <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
                             <div class="flex-1 px-4 py-2 text-sm truncate">
-                                <a href="#" class="text-gray-900 font-medium hover:text-gray-600"> Briefs </a>
+                                <p class="text-gray-900 font-medium hover:text-gray-600"> Briefs </p>
                                 <p class="text-gray-500"><%=request.getAttribute("nbBrief")%> Brief</p>
                             </div>
                             <div class="flex-shrink-0 pr-2">
-                                <a href="Briefs.jsp" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
+                                <a href="/admin/briefs" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none " aria-expanded="false" aria-haspopup="true">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                     </svg>

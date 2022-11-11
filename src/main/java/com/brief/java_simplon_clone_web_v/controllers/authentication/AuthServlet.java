@@ -2,6 +2,7 @@ package com.brief.java_simplon_clone_web_v.controllers.authentication;
 
 import com.brief.java_simplon_clone_web_v.entities.AdminsEntity;
 import com.brief.java_simplon_clone_web_v.services.AdminService;
+import com.brief.java_simplon_clone_web_v.services.TeacherService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -21,6 +22,8 @@ public class AuthServlet extends HttpServlet {
                 // if session is not null, redirect to home
                 if (request.getSession().getAttribute("admin") != null) {
                     response.sendRedirect("/admin");
+                } else if(request.getSession().getAttribute("teacher") != null) {
+                    response.sendRedirect("/teacher");
                 } else {
                     request.getRequestDispatcher("auth/Login.jsp").forward(request, response);
                 }
@@ -44,7 +47,7 @@ public class AuthServlet extends HttpServlet {
                     request.setAttribute("email", email);
                     request.setAttribute("password", password);
                     request.setAttribute("error_login", "Role is required");
-                    response.sendRedirect("/Login");
+                    request.getRequestDispatcher("auth/Login.jsp").forward(request, response);
                 } else {
                     switch (role) {
                         case "admin" -> {
@@ -62,6 +65,21 @@ public class AuthServlet extends HttpServlet {
                                 request.getRequestDispatcher("auth/Login.jsp").forward(request, response);
                             }
                         }
+                        case "teacher" -> {
+                            TeacherService teacherService = new TeacherService();
+                            if (teacherService.login(email, password)) {
+                                HttpSession session = request.getSession();
+                                session.setAttribute("teacher", teacherService.getTeacherByEmail(email));
+                                response.sendRedirect("/teacher");
+                            } else {
+                                request.setAttribute("email", email);
+                                request.setAttribute("password", password);
+                                request.setAttribute("role", role);
+                                request.setAttribute("error_login", "Invalid email or password");
+                                request.getRequestDispatcher("auth/Login.jsp").forward(request, response);
+                            }
+                        }
+
                     }
                 }
             }

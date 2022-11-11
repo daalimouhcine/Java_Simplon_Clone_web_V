@@ -6,11 +6,22 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "TeacherServlet", value = "/TeacherServlet")
+@WebServlet({"/teacher", "/teacher/briefs", "/teacher/briefs/add"})
 public class TeacherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String path = request.getServletPath();
+        switch (path) {
+            case "/teacher" -> {
+                request.getRequestDispatcher("/teacher/Dashboard.jsp").forward(request, response);
+            }
+            case "/teacher/briefs" -> {
+                request.getRequestDispatcher("/teacher/Briefs.jsp").forward(request, response);
+            }
+            case "/teacher/briefs/add" -> {
+                request.getRequestDispatcher("/teacher/AddBrief.jsp").forward(request, response);
+            }
+        }
     }
 
     @Override

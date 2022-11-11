@@ -298,7 +298,7 @@
                                 %>
                                 <form action="/admin/teachers" method="post">
                                     <select class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" name="promo" id="promo">
-                                        <option>Select Promo</option>
+                                        <option selected disabled>Select Promo</option>
                                         <%
                                             for (PromosEntity promo1 : promos) {
                                                 if (promo1.getTeacherId() == null) {
@@ -311,12 +311,22 @@
                                     </select>
                                     <input type="hidden" name="id" value="<%=teacher.getId()%>">
                                     <input type="hidden" name="action" value="assignPromo">
-                                    <button type="submit" class="btn btn-primary">Assign</button>
+                                    <button type="submit" class="inline-flex items-center px-3 py-2 mt-2 mx-auto border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                        Assign
+                                    </button>
                                 </form>
                                 <%
                                     } else {
                                 %>
                                         <div class="truncate"><%=promoName%></div>
+                                        <form action="/admin/teachers" method="post">
+                                            <input type="hidden" name="id" value="<%=teacher.getId()%>">
+                                            <input type="hidden" name="action" value="unassignPromo">
+                                            <button type="submit" class="inline-flex items-center px-3 py-2 mt-2 mx-auto border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                                Unassign
+                                            </button>
+                                        </form>
+
                                 <%
                                     }
                                 %>

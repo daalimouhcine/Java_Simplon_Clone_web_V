@@ -277,7 +277,7 @@
                         <%
                             List<StudentsEntity> students = (List<StudentsEntity>) request.getAttribute("students");
                             for (StudentsEntity student : students) {
-                                String promoName = "No promo";
+                                String promoName = null;
                                 if(student.getPromoid() != null) {
                                     PromosEntity promo = promoService.getPromoById(student.getPromoid());
                                     promoName = promo.getName();
@@ -294,7 +294,44 @@
                                 <div class="truncate"><%=student.getEmail()%></div>
                             </td>
                             <td class="px-6 py-3 text-sm text-gray-500">
+                                <%
+                                    if (promoName == null) {
+//                                        create select for the promos that have no teacher
+                                %>
+                                <form action="/admin/students" method="post">
+                                    <select class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" name="promo" id="promo">
+                                        <option selected disabled>Select Promo</option>
+                                        <%
+                                            for (PromosEntity promo1 : promos) {
+                                        %>
+                                            <option value="<%=promo1.getId()%>"><%=promo1.getName()%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                    <input type="hidden" name="id" value="<%=student.getId()%>">
+                                    <input type="hidden" name="action" value="assignPromo">
+                                    <button type="submit" class="inline-flex items-center px-3 py-2 mt-2 mx-auto border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                        Assign
+                                    </button>
+                                </form>
+                                <%
+                                } else {
+                                %>
                                 <div class="truncate"><%=promoName%></div>
+                                <form action="/admin/students" method="post">
+                                    <input type="hidden" name="id" value="<%=student.getId()%>">
+                                    <input type="hidden" name="action" value="unassignPromo">
+                                    <button type="submit" class="inline-flex items-center px-3 py-2 mt-2 mx-auto border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                        Unassign
+                                    </button>
+                                </form>
+
+                                <%
+                                    }
+                                %>
+
+
                             </td>
                             <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                 <form action="/admin/students" method="post">

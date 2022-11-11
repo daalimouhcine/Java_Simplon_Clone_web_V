@@ -38,5 +38,18 @@ public class AdminService {
         }
     }
 
+    public AdminsEntity getAdminByEmail(String email) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            TypedQuery<AdminsEntity> query = em.createQuery("SELECT a FROM AdminsEntity a WHERE a.email = :email", AdminsEntity.class);
+            query.setParameter("email", email);
+            AdminsEntity admin = query.getSingleResult();
+            return admin;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 
 }

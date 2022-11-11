@@ -1,8 +1,11 @@
 package com.brief.java_simplon_clone_web_v.services;
 
 import com.brief.java_simplon_clone_web_v.config.EntityManagerConfig;
+import com.brief.java_simplon_clone_web_v.entities.AdminsEntity;
 import com.brief.java_simplon_clone_web_v.entities.TeachersEntity;
+import com.brief.java_simplon_clone_web_v.utils.HashPassword;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -61,6 +64,21 @@ public class TeacherService {
             }
         }
 
+        public TeachersEntity getTeacherByEmail(String email) {
+            try {
+                EntityManager em = EntityManagerConfig.getInstance().getEm();
+                em.getTransaction().begin();
+                TeachersEntity teacher = em.createQuery("SELECT t FROM TeachersEntity t WHERE t.email = :email", TeachersEntity.class)
+                        .setParameter("email", email)
+                        .getSingleResult();
+                em.getTransaction().commit();
+                return teacher;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
         public List<TeachersEntity> getAllTeachers() {
             try {
                 EntityManager em = EntityManagerConfig.getInstance().getEm();
@@ -84,6 +102,24 @@ public class TeacherService {
             } catch (Exception e) {
                 e.printStackTrace();
                 return 0;
+            }
+        }
+
+        public boolean login(String email, String password) {
+            try {
+                EntityManager em = EntityManagerConfig.getInstance().getEm();
+                em.getTransaction().begin();
+                TypedQuery<TeachersEntity> query = em.createQuery("SELECT t FROM TeachersEntity t WHERE t.email = :email", TeachersEntity.class);
+                query.setParameter("email", email);
+                TeachersEntity teacher = query.getSingleResult();
+                em.getTransaction().commit();
+                if(teacher != null) {
+                    return HashPassword.check(password, teacher.getPassword());
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
         }
 

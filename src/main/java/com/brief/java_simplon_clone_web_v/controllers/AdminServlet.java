@@ -42,7 +42,7 @@ public class AdminServlet extends HttpServlet {
 
             String path = request.getServletPath();
             switch (path) {
-                case "/admin" -> request.getRequestDispatcher("admin/Dashboard.jsp").forward(request, response);
+                case "/admin" -> request.getRequestDispatcher("/admin/Dashboard.jsp").forward(request, response);
                 case "/admin/promos" -> {
                     request.getRequestDispatcher("/admin/Promos.jsp").forward(request, response);
                 }

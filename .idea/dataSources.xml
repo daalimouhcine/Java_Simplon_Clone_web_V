@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="simplon_clone_web_v@localhost" uuid="a0db96f9-e9df-42d1-ab6a-17217941d7da">
+    <data-source source="LOCAL" name="simplon_clone_web_v@localhost" uuid="4e7cdd54-2812-47dc-a341-de0c1dac4317">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

@@ -279,7 +279,7 @@
                             for (StudentsEntity student : students) {
                                 String promoName = null;
                                 if(student.getPromoid() != null) {
-                                    PromosEntity promo = promoService.getPromoById(student.getPromoid());
+                                    PromosEntity promo = (PromosEntity) promoService.getPromoById(student.getPromoid());
                                     promoName = promo.getName();
                                 }
                         %>

@@ -81,22 +81,6 @@
                             </svg>
                             Settings
                         </a>
-
-                        <a href="#" class="group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-cyan-100 hover:text-white hover:bg-cyan-600">
-                            <!-- Heroicon name: outline/question-mark-circle -->
-                            <svg class="mr-4 h-6 w-6 text-cyan-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Help
-                        </a>
-
-                        <a href="#" class="group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-cyan-100 hover:text-white hover:bg-cyan-600">
-                            <!-- Heroicon name: outline/shield-check -->
-                            <svg class="mr-4 h-6 w-6 text-cyan-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                            Privacy
-                        </a>
                     </div>
                 </div>
             </nav>
@@ -202,7 +186,7 @@
                                         <dl>
                                             <dt class="text-sm font-medium text-gray-500 truncate">My Students</dt>
                                             <dd>
-                                                <div class="text-lg font-medium text-gray-900">$30,659.45</div>
+                                                <div class="text-lg font-medium text-gray-900"><%=request.getAttribute("studentCount")%></div>
                                             </dd>
                                         </dl>
                                     </div>
@@ -210,10 +194,10 @@
                             </div>
                             <div class="bg-gray-50 px-5 py-3 flex justify-around">
                                 <div class="text-sm">
-                                    <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
+                                    <a href="/teacher/myStudents" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
                                 </div>
                                 <div class="text-sm">
-                                    <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> Assign to my promo </a>
+                                    <a href="/teacher/students/assign" class="font-medium text-cyan-700 hover:text-cyan-900"> Assign to my promo </a>
                                 </div>
                             </div>
                         </div>

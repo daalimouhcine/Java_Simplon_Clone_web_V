@@ -65,7 +65,7 @@ public class StudentService {
         try {
             EntityManager em = EntityManagerConfig.getInstance().getEm();
             em.getTransaction().begin();
-            List<StudentsEntity> students = em.createQuery("SELECT s FROM StudentsEntity s", StudentsEntity.class).getResultList();
+            List<StudentsEntity> students = em.createQuery("SELECT s FROM StudentsEntity s order by s.id ASC ", StudentsEntity.class).getResultList();
             em.getTransaction().commit();
             return students;
         } catch (Exception e) {
@@ -87,4 +87,70 @@ public class StudentService {
         }
     }
 
+    public List<StudentsEntity> getStudentsByPromo(int id) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            List<StudentsEntity> students = em.createQuery("SELECT s FROM StudentsEntity s WHERE s.promoid = :id order by s.id ASC ", StudentsEntity.class).setParameter("id", id).getResultList();
+            em.getTransaction().commit();
+            return students;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void unassignStudent(int studentId) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            StudentsEntity student = em.find(StudentsEntity.class, studentId);
+            student.setPromoid(null);
+            em.merge(student);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<StudentsEntity> getStudentsWithNoPromo() {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            List<StudentsEntity> students = em.createQuery("SELECT s FROM StudentsEntity s WHERE s.promoid IS NULL order by s.id ASC ", StudentsEntity.class).getResultList();
+            em.getTransaction().commit();
+            return students;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void assignStudent(int studentId, int id) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            StudentsEntity student = em.find(StudentsEntity.class, studentId);
+            student.setPromoid(id);
+            em.merge(student);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteByPromo(int parseInt) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            List<StudentsEntity> students = em.createQuery("SELECT s FROM StudentsEntity s WHERE s.promoid = :id order by s.id ASC ", StudentsEntity.class).setParameter("id", parseInt).getResultList();
+            for (StudentsEntity student : students) {
+                student.setPromoid(null);
+                em.merge(student);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -94,6 +94,8 @@ public class AdminServlet extends HttpServlet {
                 PromoService promoService = new PromoService();
                 if (action.equals("delete")) {
                     promoService.delete(Integer.parseInt(id));
+                    StudentService studentService = new StudentService();
+                    studentService.deleteByPromo(Integer.parseInt(id));
                 }
                 response.sendRedirect("/admin/promos");
             }

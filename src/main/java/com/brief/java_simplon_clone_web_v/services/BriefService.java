@@ -84,4 +84,19 @@ public class BriefService {
             return 0;
         }
     }
+
+    public List<BriefsEntity> getPromoBriefs(int promoId) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            List<BriefsEntity> briefs = em.createQuery("SELECT b FROM BriefsEntity b WHERE b.promoid = :promoId", BriefsEntity.class)
+                    .setParameter("promoId", promoId)
+                    .getResultList();
+            em.getTransaction().commit();
+            return briefs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

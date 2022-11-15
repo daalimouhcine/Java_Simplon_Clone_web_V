@@ -19,41 +19,51 @@ import java.util.List;
 public class TeacherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StudentService studentService = new StudentService();
-        BriefService briefService = new BriefService();
-        TeachersEntity teacher = (TeachersEntity) request.getSession().getAttribute("teacher");
-        PromoService promoService = new PromoService();
-        PromosEntity promo = promoService.getPromoByTeacherId(teacher.getId());
-        int studentCount = studentService.getStudentsByPromo(promo.getId()).size();
-        request.setAttribute("studentCount", studentCount);
-        int briefCount = briefService.getBriefsByPromoId(promo.getId()).size();
-        request.setAttribute("briefCount", briefCount);
-        String path = request.getServletPath();
-        switch (path) {
-            case "/teacher" -> {
+        // check for session if teacher is logged in
+        if (request.getSession().getAttribute("teacher") == null) {
+            response.sendRedirect(request.getContextPath() + "/Login");
+
+        } else {
+            String path = request.getServletPath();
+            if(request.getSession().getAttribute("promo") == null) {
                 request.getRequestDispatcher("/teacher/Dashboard.jsp").forward(request, response);
-            }
-            case "/teacher/myBriefs" -> {
-                List<BriefsEntity> briefList = briefService.getPromoBriefs(promo.getId());
-                request.setAttribute("briefList", briefList);
-                request.getRequestDispatcher("/teacher/MyBriefs.jsp").forward(request, response);
-            }
-            case "/teacher/briefs/add" -> {
-                request.getRequestDispatcher("/teacher/AddBrief.jsp").forward(request, response);
-            }
-            case "/teacher/myStudents" -> {
-                if(promo != null) {
-                    List<StudentsEntity> studentList = studentService.getStudentsByPromo(promo.getId());
-                    request.setAttribute("studentList", studentList);
-                    request.getRequestDispatcher("/teacher/MyStudents.jsp").forward(request, response);
-                } else {
-                    request.getRequestDispatcher("/teacher/Dashboard.jsp").forward(request, response);
+            } else {
+                StudentService studentService = new StudentService();
+                BriefService briefService = new BriefService();
+                TeachersEntity teacher = (TeachersEntity) request.getSession().getAttribute("teacher");
+                PromoService promoService = new PromoService();
+                PromosEntity promo = promoService.getPromoByTeacherId(teacher.getId());
+                int studentCount = studentService.getStudentsByPromo(promo.getId()).size();
+                request.setAttribute("studentCount", studentCount);
+                int briefCount = briefService.getBriefsByPromoId(promo.getId()).size();
+                request.setAttribute("briefCount", briefCount);
+                switch (path) {
+                    case "/teacher" -> {
+                        request.getRequestDispatcher("/teacher/Dashboard.jsp").forward(request, response);
+                    }
+                    case "/teacher/myBriefs" -> {
+                        List<BriefsEntity> briefList = briefService.getPromoBriefs(promo.getId());
+                        request.setAttribute("briefList", briefList);
+                        request.getRequestDispatcher("/teacher/MyBriefs.jsp").forward(request, response);
+                    }
+                    case "/teacher/briefs/add" -> {
+                        request.getRequestDispatcher("/teacher/AddBrief.jsp").forward(request, response);
+                    }
+                    case "/teacher/myStudents" -> {
+                        if (promo != null) {
+                            List<StudentsEntity> studentList = studentService.getStudentsByPromo(promo.getId());
+                            request.setAttribute("studentList", studentList);
+                            request.getRequestDispatcher("/teacher/MyStudents.jsp").forward(request, response);
+                        } else {
+                            request.getRequestDispatcher("/teacher/Dashboard.jsp").forward(request, response);
+                        }
+                    }
+                    case "/teacher/students/assign" -> {
+                        List<StudentsEntity> noPromoStudentList = studentService.getStudentsWithNoPromo();
+                        request.setAttribute("noPromoStudentList", noPromoStudentList);
+                        request.getRequestDispatcher("/teacher/AssignStudent.jsp").forward(request, response);
+                    }
                 }
-            }
-            case "/teacher/students/assign" -> {
-                List<StudentsEntity> noPromoStudentList = studentService.getStudentsWithNoPromo();
-                request.setAttribute("noPromoStudentList", noPromoStudentList);
-                request.getRequestDispatcher("/teacher/AssignStudent.jsp").forward(request, response);
             }
         }
     }

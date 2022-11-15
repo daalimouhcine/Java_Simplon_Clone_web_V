@@ -208,15 +208,15 @@
                   <div class="flex items-center">
                     <div class="flex-shrink-0">
                       <!-- Heroicon name: outline/scale -->
-                      <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
                       </svg>
                     </div>
                     <div class="ml-5 w-0 flex-1">
                       <dl>
                         <dt class="text-sm font-medium text-gray-500 truncate">My Briefs</dt>
                         <dd>
-                          <div class="text-lg font-medium text-gray-900">$30,659.45</div>
+                          <div class="text-lg font-medium text-gray-900"><%=request.getAttribute("briefCount")%></div>
                         </dd>
                       </dl>
                     </div>
@@ -224,10 +224,10 @@
                 </div>
                 <div class="bg-gray-50 px-5 py-3 flex justify-around">
                   <div class="text-sm">
-                    <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
+                    <a href="/teacher/myBriefs" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
                   </div>
                   <div class="text-sm">
-                    <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> Add Brief </a>
+                    <a href="/teacher/briefs/add" class="font-medium text-cyan-700 hover:text-cyan-900"> Add Brief </a>
                   </div>
                 </div>
               </div>
@@ -245,50 +245,60 @@
                   <table class="min-w-full divide-y divide-gray-200">
                     <thead>
                     <tr>
-                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Full Name</th>
-                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                      <th class="px-6 py-3 bg-gray-50 text-xs text-center font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Technologies</th>
+                      <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">Lunched</th>
                       <th class="px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                     <%
                       List<BriefsEntity> briefList = (List<BriefsEntity>) request.getAttribute("briefList");
-                      if(briefList != null) {
+                      if(briefList.size() > 0) {
                         for (BriefsEntity brief : briefList) {
                     %>
                     <tr class="bg-white">
                       <td class="flex px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 mr-1.5 h-6 w-6 text-gray-500">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                         </svg>
                         <b class="text-gray-900 font-medium"><%=brief.getTitle()%></b>
                       </td>
-
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <span class="text-gray-900 font-medium"><%=brief.getDescription()%> </span>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%=brief.getTechnologies()%></td>
                       <td class="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
-                      <% if(brief.getLaunched() == false) { %>
+                      <% if(brief.getLaunched()) { %>
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            Launched
+                          </span>
+                        <% } else { %>
                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                             Not launched
                           </span>
-                        <% } else { %>
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Launched
-                          </span>
                         <% } %>
                       </td>
-                      <td class="">
-                        <%--                                                    button to unassign--%>
-                        <form action="/teacher/myStudents" method="post" class="m-auto">
-                          <input type="hidden" name="action" value="unassign">
-                          <input type="hidden" name="studentId" value="<%=brief.getId()%>">
-                          <button title="Unassign" type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                      <td>
+                        <% if(!brief.getLaunched()) { %>
+                          <form action="/teacher/myBriefs" method="post" class="">
+                            <input type="hidden" name="action" value="launch">
+                            <input type="hidden" name="briefId" value="<%=brief.getId()%>">
+                            <button title="Delete" type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12l-3-3m0 0l-3 3m3-3v6m-1.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                              </svg>
+                            </button>
+                          </form>
+                        <% } %>
+
+                        <form action="/teacher/myBriefs" method="post" class="m-auto">
+                          <input type="hidden" name="action" value="delete">
+                          <input type="hidden" name="briefId" value="<%=brief.getId()%>">
+                          <button title="Delete" type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M22 10.5h-6m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                             </svg>
                           </button>
                         </form>
@@ -303,8 +313,8 @@
                         <div class="flex">
                           <a href="#" class="group inline-flex space-x-2 truncate text-sm">
                             <!-- Heroicon name: solid/cash -->
-                            <svg class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                             </svg>
                             <p class="text-gray-500 truncate group-hover:text-gray-900">No Brief</p>
                           </a>

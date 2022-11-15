@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Add Brief</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div class="min-h-full">
@@ -177,9 +178,10 @@
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0">
                                             <!-- Heroicon name: outline/scale -->
-                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                                             </svg>
+
                                         </div>
                                         <div class="ml-5 w-0 flex-1">
                                             <dl>
@@ -206,15 +208,15 @@
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0">
                                             <!-- Heroicon name: outline/scale -->
-                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
                                             </svg>
                                         </div>
                                         <div class="ml-5 w-0 flex-1">
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">My Briefs</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">$30,659.45</div>
+                                                    <div class="text-lg font-medium text-gray-900"><%=request.getAttribute("briefCount")%></div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -222,10 +224,10 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3 flex justify-around">
                                     <div class="text-sm">
-                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
+                                        <a href="/teacher/myBriefs" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
                                     </div>
                                     <div class="text-sm">
-                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> Add Brief </a>
+                                        <a href="/teacher/briefs/add" class="font-medium text-cyan-700 hover:text-cyan-900"> Add Brief </a>
                                     </div>
                                 </div>
                             </div>
@@ -240,7 +242,34 @@
                         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex flex-col mt-2">
                                 <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
-
+<%--                                    create form to add brief--%>
+                                    <form action="/teacher/briefs/add" method="post" class="flex-row">
+                                        <div class="mt-2">
+                                            <label for="title" class="block text-sm font-medium text-gray-700">Brief Title</label>
+                                            <div class="mt-2 border-b border-gray-300 focus-within:border-indigo-600">
+                                                <input type="text" name="title" id="title" class="p-3 block w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm" placeholder="Brief Title">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <label for="description" class="block text-sm font-medium text-gray-700">Brief Description</label>
+                                            <div class="mt-2">
+                                                <textarea rows="4" name="description" id="description" placeholder="Brief Description" class="p-3 block w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm rounded-md"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <label for="technologies" class="block text-sm font-medium text-gray-700">Technologies</label>
+                                            <div class="mt-2 border-b border-gray-300 focus-within:border-indigo-600">
+                                                <input type="text" name="technologies" id="technologies" class="p-3 block w-full border-0 border-b border-transparent bg-gray-50 focus:border-indigo-600 focus:ring-0 sm:text-sm" placeholder="Technologies">
+                                            </div>
+                                        </div>
+<%--                                        submit--%>
+                                        <div class="mt-5">
+                                            <input type="hidden" name="action" value="addBrief">
+                                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                Add Brief
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

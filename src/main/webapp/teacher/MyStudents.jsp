@@ -208,15 +208,15 @@
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0">
                                             <!-- Heroicon name: outline/scale -->
-                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
                                             </svg>
                                         </div>
                                         <div class="ml-5 w-0 flex-1">
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">My Briefs</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">$30,659.45</div>
+                                                    <div class="text-lg font-medium text-gray-900"><%=request.getAttribute("briefCount")%></div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -224,10 +224,10 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3 flex justify-around">
                                     <div class="text-sm">
-                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
+                                        <a href="/teacher/myBriefs" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
                                     </div>
                                     <div class="text-sm">
-                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> Add Brief </a>
+                                        <a href="/teacher/briefs/add" class="font-medium text-cyan-700 hover:text-cyan-900"> Add Brief </a>
                                     </div>
                                 </div>
                             </div>

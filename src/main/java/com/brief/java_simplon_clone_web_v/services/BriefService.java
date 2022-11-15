@@ -4,6 +4,7 @@ import com.brief.java_simplon_clone_web_v.config.EntityManagerConfig;
 import com.brief.java_simplon_clone_web_v.entities.BriefsEntity;
 import jakarta.persistence.EntityManager;
 
+import java.util.Collection;
 import java.util.List;
 
 public class BriefService {
@@ -33,10 +34,11 @@ public class BriefService {
         }
     }
 
-    public boolean delete(BriefsEntity brief) {
+    public boolean delete(int id) {
         try {
             EntityManager em = EntityManagerConfig.getInstance().getEm();
             em.getTransaction().begin();
+            BriefsEntity brief = em.find(BriefsEntity.class, id);
             em.remove(brief);
             em.getTransaction().commit();
             return true;
@@ -91,6 +93,21 @@ public class BriefService {
             em.getTransaction().begin();
             List<BriefsEntity> briefs = em.createQuery("SELECT b FROM BriefsEntity b WHERE b.promoid = :promoId", BriefsEntity.class)
                     .setParameter("promoId", promoId)
+                    .getResultList();
+            em.getTransaction().commit();
+            return briefs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<BriefsEntity> getBriefsByPromoId(int id) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            List<BriefsEntity> briefs = em.createQuery("SELECT b FROM BriefsEntity b WHERE b.promoid = :id", BriefsEntity.class)
+                    .setParameter("id", id)
                     .getResultList();
             em.getTransaction().commit();
             return briefs;

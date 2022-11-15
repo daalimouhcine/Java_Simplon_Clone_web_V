@@ -1,7 +1,9 @@
 package com.brief.java_simplon_clone_web_v.controllers.authentication;
 
 import com.brief.java_simplon_clone_web_v.entities.AdminsEntity;
+import com.brief.java_simplon_clone_web_v.entities.PromosEntity;
 import com.brief.java_simplon_clone_web_v.services.AdminService;
+import com.brief.java_simplon_clone_web_v.services.PromoService;
 import com.brief.java_simplon_clone_web_v.services.TeacherService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -69,8 +71,12 @@ public class AuthServlet extends HttpServlet {
                             TeacherService teacherService = new TeacherService();
                             if (teacherService.login(email, password)) {
                                 HttpSession session = request.getSession();
+                                PromoService promoService = new PromoService();
+                                PromosEntity promo = promoService.getPromoByTeacherId(teacherService.getTeacherByEmail(email).getId());
                                 session.setAttribute("teacher", teacherService.getTeacherByEmail(email));
+                                session.setAttribute("promo", promo);
                                 response.sendRedirect("/teacher");
+
                             } else {
                                 request.setAttribute("email", email);
                                 request.setAttribute("password", password);

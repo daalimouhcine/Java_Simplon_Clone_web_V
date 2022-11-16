@@ -6,11 +6,22 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "StudentServlet", value = "/StudentServlet")
+@WebServlet({"/student"})
 public class StudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getSession().getAttribute("student") == null) {
+            response.sendRedirect(request.getContextPath() + "/Login");
 
+        } else {
+            String path = request.getServletPath();
+            switch (path) {
+                case "/student" -> {
+                    request.getRequestDispatcher("/student/Dashboard.jsp").forward(request, response);
+                }
+            }
+
+        }
     }
 
     @Override

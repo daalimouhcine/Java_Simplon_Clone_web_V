@@ -2,7 +2,10 @@ package com.brief.java_simplon_clone_web_v.services;
 
 import com.brief.java_simplon_clone_web_v.config.EntityManagerConfig;
 import com.brief.java_simplon_clone_web_v.entities.StudentsEntity;
+import com.brief.java_simplon_clone_web_v.entities.TeachersEntity;
+import com.brief.java_simplon_clone_web_v.utils.HashPassword;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -151,6 +154,39 @@ public class StudentService {
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean login(String email, String password) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            TypedQuery<StudentsEntity> query = em.createQuery("SELECT s FROM StudentsEntity s WHERE s.email = :email", StudentsEntity.class);
+            query.setParameter("email", email);
+            StudentsEntity student = query.getSingleResult();
+            em.getTransaction().commit();
+            if(student != null) {
+                return HashPassword.check(password, student.getPassword());
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public StudentsEntity getStudentByEmail(String email) {
+        try {
+            EntityManager em = EntityManagerConfig.getInstance().getEm();
+            em.getTransaction().begin();
+            TypedQuery<StudentsEntity> query = em.createQuery("SELECT s FROM StudentsEntity s WHERE s.email = :email", StudentsEntity.class);
+            query.setParameter("email", email);
+            StudentsEntity student = query.getSingleResult();
+            em.getTransaction().commit();
+            return student;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

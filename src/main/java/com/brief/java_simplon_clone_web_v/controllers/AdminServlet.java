@@ -52,7 +52,7 @@ public class AdminServlet extends HttpServlet {
                 case "/admin/briefs" -> {
                     BriefService briefService1 = new BriefService();
                     List<BriefsEntity> briefs = briefService1.getAllBriefs();
-                    request.setAttribute("briefs", briefs);
+                    request.setAttribute("briefList", briefs);
                     request.getRequestDispatcher("/admin/Briefs.jsp").forward(request, response);
                 }
                 case "/admin/students" -> {

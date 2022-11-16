@@ -37,7 +37,7 @@
                 <nav class="px-2">
                     <div class="space-y-1">
                         <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50" -->
-                        <a href="#" class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md" aria-current="page">
+                        <a href="/admin" class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md" aria-current="page">
                             <svg class="text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                             </svg>
@@ -71,18 +71,20 @@
             <!-- User account dropdown -->
             <div class="px-3 relative inline-block text-left">
                 <div>
-                        <span class="flex w-full justify-between items-center">
+                    <%
+                        AdminsEntity admin = (AdminsEntity) request.getSession().getAttribute("admin");
+                    %>
+                    <span class="flex w-full justify-between items-center">
                           <span class="flex min-w-0 items-center justify-between space-x-3">
-                            <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
-                            <span class="flex-1 flex flex-col min-w-0">
-                                <%
-                                    AdminsEntity admin = (AdminsEntity) request.getSession().getAttribute("admin");
-                                %>
+                                <span class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-700">
+                                  <span class="text-sm font-medium leading-none text-blue-200"><%=admin.getFullname().toUpperCase().charAt(0)%></span>
+                                </span>
+                              <span class="flex-1 flex flex-col min-w-0">
                               <span class="text-gray-900 text-sm font-medium truncate"><%=admin.getFullname()%></span>
                               <span class="text-gray-500 text-xsm truncate"><%=admin.getEmail()%></span>
                             </span>
                           </span>
-                            <!-- Heroicon name: solid/selector -->
+                        <!-- Heroicon name: solid/selector -->
                             <form action="/Logout" method="post">
                                 <input type="hidden" name="action" value="logout"/>
                                 <button type="submit">
